@@ -33,6 +33,11 @@ public class Team {
         setTeam(d);
     }
 
+    public void reset() {
+        a.clear();
+        d.clear();
+    }
+
     public void setDev2(Employee dev) {
         setEmployee(dev);
     }
@@ -44,8 +49,9 @@ public class Team {
         return a;
     }
 
-    private void setTeam(Team d) { this.d.add(d); }
+    private void setTeam(Team temp) { this.d.add(temp); }
     public LinkedList<Team> getTeam() { return d; }
+
 
     /*
     public void setBackend(Backend a) {

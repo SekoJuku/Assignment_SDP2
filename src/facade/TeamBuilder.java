@@ -54,6 +54,7 @@ public class TeamBuilder extends BuilderHelper {
     public void addEmployee(int n) {
         team.add((data.getE().get(n)));
         data.deleteE(n);
+        dev2.reset();
     }
 
     public String fillTeam(int choice) {
