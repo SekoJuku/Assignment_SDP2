@@ -5,12 +5,15 @@ import members.Worker;
 public class Employee implements Worker {
     private String uname;
     private int workExp;
+    private String direction;
 
-    public Employee(String uname,int workExp) {
+    public Employee(String uname,int workExp, String direction) {
         setUname(uname);
         setWorkExp(workExp);
+        setDirection(direction);
     }
 
+    private void setDirection(String direction) { this.direction = direction; }
     public void setUname(String uname) {
         this.uname = uname;
     }
@@ -24,6 +27,7 @@ public class Employee implements Worker {
     public String getUname() {
         return uname;
     }
+    public String getDirection() { return direction; }
 
     @Override
     public void work() {

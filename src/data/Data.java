@@ -1,38 +1,36 @@
 package data;
 
-import members.team.Backend;
-import members.team.Frontend;
-import members.team.UIUX;
-
+import members.Employee;
 import java.util.LinkedList;
 
 public class Data {
-    LinkedList<Backend> a1 = new LinkedList<>();
-    LinkedList<Frontend> b1 = new LinkedList<>();
-    LinkedList<UIUX> c1 = new LinkedList<>();
+    LinkedList<Employee> a1 = new LinkedList<>();
 
-
-    LinkedList<Backend> a = new LinkedList<>();
-    LinkedList<Frontend> b = new LinkedList<>();
-    LinkedList<UIUX> c = new LinkedList<>();
+    LinkedList<Employee> a = new LinkedList<>();
 
     public Data() {
-        a1.add(new Backend("Seko",2));
-        a1.add(new Backend("z1z",50));
-        a1.add(new Backend("Ibra",100));
+        a1.add(new Employee("Seko",2,"B"));
+        a1.add(new Employee("z1z",50,"B"));
+        a1.add(new Employee("Ibra",100,"B"));
 
-        b1.add(new Frontend("Adilkhan",3));
-        b1.add(new Frontend("Ulan",5));
-        b1.add(new Frontend("Berik",10));
+        a1.add(new Employee("Adilkhan",3,"F"));
+        a1.add(new Employee("Ulan",5,"F"));
+        a1.add(new Employee("Berik",10,"F"));
 
-        c1.add(new UIUX("Rakhat",1));
-        c1.add(new UIUX("Ayan",4));
-        c1.add(new UIUX("Akan",9));
+        a1.add(new Employee("Rakhat",1,"U"));
+        a1.add(new Employee("Ayan",4,"U"));
+        a1.add(new Employee("Akan",9,"U"));
 
         a = a1;
-        b = b1;
-        c = c1;
     }
 
 
+    public void deleteE(int index) {
+        a.remove(index);
+    }
+
+
+    public LinkedList<Employee> getE() {
+        return a;
+    }
 }

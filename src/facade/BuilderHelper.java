@@ -1,60 +1,58 @@
 package facade;
 
 import data.Data;
-import members.team.Backend;
-import members.team.Frontend;
-import members.team.UIUX;
+import members.Employee;
 
 import java.util.LinkedList;
 import java.util.Scanner;
 
 public class BuilderHelper {
     Scanner sc = new Scanner(System.in);
-    Data data = new Data();
 
     public int chooseMain() {
-        System.out.println("Who you want to choose:" +
-                "1. Backend Developper" +
-                "2. Frontend Developper" +
-                "3. UI/UX Developper" +
-                "4. Team(Choosing is option)" +
-                "9. Exit");
+        System.out.println("Who you want to choose:\n" +
+                "1. Backend Developper\n" +
+                "2. Frontend Developper\n" +
+                "3. UI/UX Developper\n" +
+                "4. Team(Choosing is option)\n" +
+                "9. Exit\n");
         return end();
     }
 
-    public int chooseDev(String option, LinkedList a) {
+
+
+/*
+    public int chooseDev(String option, LinkedList<Employee> a) {
         int n = 0;
-        if( option.equals("B")) n = chooseBack(a);
-        else if( option.equals("F")) n = chooseFront(a);
-        else if( option.equals("U")) n = chooseUIUX(a);
-
-        System.out.println(n + ". Exit");
+        if( option.equals("B")) n = chooseEmployee(a);
+        else if( option.equals("F")) n = chooseEmployee(a);
+        else if( option.equals("U")) n = chooseEmployee(a);
         return end();
     }
+ */
 
-    public int chooseBack(LinkedList<Backend> a) {
-        int l = 1;
-        System.out.println("");
-        while (a.listIterator().hasNext()) {
-            System.out.println( l + ". " + a.listIterator().next().getUname() );
+    public int chooseEmployee(String s,LinkedList<Employee> a) {
+        int l = 0;
+        LinkedList<Integer> option = new LinkedList<Integer>();
+        String direction = "";
+        if(s.equals("B")) direction = "BackEnd";
+        if(s.equals("F")) direction = "FrontEnd";
+        if(s.equals("U")) direction = "UI/UX";
+        while (a.size() > l) {
+            Employee temp = a.get(l);
+            if(temp.getDirection().equals(s)) {
+                option.add(l);
+                System.out.println(l+1 + ". " + temp.getUname());
+            }
+            ++l;
         }
-        return l;
-    }
-    public int chooseFront(LinkedList<Frontend> b) {
-        int l = 1;
-        System.out.println("");
-        while (b.listIterator().hasNext()) {
-            System.out.println( l + ". " + b.listIterator().next().getUname() );
-        }
-        return l;
-    }
-    public int chooseUIUX(LinkedList<UIUX> c) {
-        int l = 1;
-        System.out.println("");
-        while (c.listIterator().hasNext()) {
-            System.out.println( l + ". " + c.listIterator().next().getUname() );
-        }
-        return l;
+        System.out.println(l + ". Exit");
+        option.add(l);
+        int number = end();
+        if(option.contains(number - 1))
+            return number;
+        else
+            return -1;
     }
 
     private int end() {

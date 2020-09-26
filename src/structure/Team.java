@@ -1,21 +1,22 @@
 package structure;
 
-import members.team.Backend;
-import members.team.Frontend;
-import members.team.UIUX;
+import members.Employee;
 
 import java.util.LinkedList;
 
 public class Team {
+    /*
     LinkedList<Backend> a = new LinkedList<>();
     LinkedList<Frontend> b = new LinkedList<>();
     LinkedList<UIUX> c = new LinkedList<>();
+    */
+    LinkedList<Employee> a = new LinkedList<>();
     LinkedList<Team> d = new LinkedList<>();
-    Backend dev1 = null;
-    Frontend dev2 = null;
-    UIUX dev3 = null;
-    Team dev4 = null;
+    Employee dev1 = null;
+    Team dev2 = new Team();
 
+    public Team() { }
+/*
     public Team(Backend a) {
         setBackend(a);
     }
@@ -25,12 +26,32 @@ public class Team {
     public Team(UIUX c) {
         setUIUX(c);
     }
-    public Team(Team d) {
-
+ */
+    public void add(Employee a) {
+        setEmployee(a);
+    }
+    public void add(Team d) {
+        setTeam(d);
     }
 
+    public Team getDev2() {
+        return dev2;
+    }
+    public void setDev2(Employee dev) {
+        setEmployee(dev);
+    }
 
+    private void setEmployee(Employee a) {
+        this.a.add(a);
+    }
+    public LinkedList<Employee> getEmployee() {
+        return a;
+    }
 
+    private void setTeam(Team d) { this.d.add(d); }
+    public LinkedList<Team> getTeam() { return d; }
+
+    /*
     public void setBackend(Backend a) {
         this.a.add(a);
     }
@@ -51,4 +72,7 @@ public class Team {
     public LinkedList<UIUX> getUIUX() {
         return c;
     }
+
+     */
+
 }
