@@ -13,7 +13,6 @@ public class Team {
     LinkedList<Employee> a = new LinkedList<>();
     LinkedList<Team> d = new LinkedList<>();
     Employee dev1 = null;
-    Team dev2 = new Team();
 
     public Team() { }
 /*
@@ -34,9 +33,6 @@ public class Team {
         setTeam(d);
     }
 
-    public Team getDev2() {
-        return dev2;
-    }
     public void setDev2(Employee dev) {
         setEmployee(dev);
     }

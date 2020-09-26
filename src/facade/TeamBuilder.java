@@ -14,6 +14,7 @@ import java.util.LinkedList;
 
 public class TeamBuilder extends BuilderHelper {
     Team team = new Team();
+    Team dev2 = new Team();
     Data data = new Data();
 
     public int add() {
@@ -29,12 +30,12 @@ public class TeamBuilder extends BuilderHelper {
         } else if( n == 4 ) {
             int choice = chooseMain();
             String choice1 = fillTeam(choice);
-            int choice3 = chooseEmployee(choice1,team.getDev2().getEmployee());
+            int choice3 = chooseEmployee(choice1,data.getE());
             if(choice3 != -1) {
                 addToTeam(choice3);
             }
             else {
-                addTeam(team.getDev2());
+                addTeam(dev2);
             }
 
         } else if( n == 9 ) {
@@ -90,7 +91,7 @@ public class TeamBuilder extends BuilderHelper {
     }
 
     public void addToTeam(int n) {
-        team.setDev2(data.getE().get(n));
+        dev2.add(data.getE().get(n));
         data.deleteE(n);
     }
 
@@ -106,17 +107,17 @@ public class TeamBuilder extends BuilderHelper {
             if(temp.getDirection().equals(s)) {
                 System.out.println(k + ". " + temp.getUname());
                 k++;
+                temp.work();
             }
             ++l;
         }
     }
 
-    @Override
-    public String toString() {
-        show("B",team.getEmployee());
-        show("F",team.getEmployee());
-        show("U",team.getEmployee());
-        show(team.getTeam());
+    public String toString(Team a) {
+        show("B",a.getEmployee());
+        show("F",a.getEmployee());
+        show("U",a.getEmployee());
+        show(a.getTeam());
         return "";
     }
 
@@ -125,13 +126,13 @@ public class TeamBuilder extends BuilderHelper {
         while(d.size() > l) {
             Team temp = d.get(l);
             System.out.println("Team " + l+1 + ":");
-            String s = toString();
+            String s = toString(temp);
             l++;
         }
     }
 
 
     public void execute() {
-        String s = toString();
+        String s = toString(team);
     }
 }
